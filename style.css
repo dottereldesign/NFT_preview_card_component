@@ -2,6 +2,8 @@
   --clr-primary-100: hsl(215, 51%, 70%);
   --clr-primary-200: hsl(178, 100%, 50%);
 
+  --clr-opacity-100: hsl(178, 100%, 50%, 0.5);
+
   --clr-neutral-100: hsl(217, 54%, 11%);
   --clr-neutral-200: hsl(216, 50%, 16%);
   --clr-neutral-300: hsl(215, 32%, 27%);
@@ -26,14 +28,31 @@ h2 {
   padding-top: 1em;
 }
 
+h2:hover {
+  color: var(--clr-primary-200);
+  cursor: pointer;
+}
+
 p {
   color: var(--clr-primary-100);
   font-size: var(--fs-medium);
   font-weight: var(--fw-light);
+}
+
+article > p {
   padding-top: 0.75em;
 }
 
+.card_info-wrapper:first-child a {
+  color: var(--clr-primary-200);
+}
+
+.card_info-wrapper:last-child a {
+  color: var(--clr-primary-100);
+}
+
 a:link {
+  text-decoration: none;
 }
 
 a:visited {
@@ -118,18 +137,22 @@ select {
 
 body {
   background-color: var(--clr-neutral-100);
+  padding: 1.5em;
 }
 
 article {
-  max-width: 400px;
+  max-width: 330px;
   background-color: var(--clr-neutral-200);
   margin: 1.5em;
   padding: 1.5em;
   border-radius: 15px;
+  margin: 0 auto;
 }
 
 article > picture img {
   border-radius: 10px;
+  max-width: 282px;
+  height: auto;
 }
 
 article .card_info-container {
@@ -168,6 +191,7 @@ article .card_seperator {
 footer {
   display: flex;
   margin-top: 1em;
+  align-items: center;
 }
 
 footer img {
@@ -182,4 +206,37 @@ footer img {
   color: var(--clr-neutral-400);
   text-decoration: none;
   font-weight: var(--fw-light);
+}
+
+.card_footer-name:hover {
+  color: var(--clr-primary-200);
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+}
+
+.card_image-hover {
+  position: absolute;
+  top: 1.5em;
+  left: 1.5em;
+  height: 282px;
+  width: 282px;
+  border-radius: 10px;
+  opacity: 0%;
+}
+
+.card_image-hover:hover {
+  display: flex;
+  opacity: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-opacity-100);
+  cursor: pointer;
+}
+
+.card_image-hover > img {
+  display: block;
+  position: absolute;
 }
